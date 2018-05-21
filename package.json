@@ -1,0 +1,19 @@
+{
+  "name": "dib",
+  "version": "0.0.1",
+  "description": "New era of front page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dib",
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "javascript"
+  ],
+  "author": "Tsiika",
+  "license": "SEE LICENSE IN <LICENSE>"
+}
