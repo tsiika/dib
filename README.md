@@ -1,5 +1,9 @@
 # *dib*, somewhat new era of the front pages!
 
+---
+
+
+
 You know when the bookmark bar on your browser is not enough? And when you open a new tab you can only see a few your most visited websites? Well this project is hitting two flies with one hit and merging those earlier "problems" in one nice package!
 
 This is only my personal view to the things. 
