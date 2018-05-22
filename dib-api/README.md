@@ -1,3 +1,10 @@
-# This is not the README you are looking for!
+# README for backend
 
-See the README on the root.
+To see more detailed information of the project, see the README on the root.
+
+## Installation
+
+Pretty straigthforward installation
+
+>npm install
+>npm run watch

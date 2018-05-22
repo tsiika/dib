@@ -3,7 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
-const api = require('./routes/api');
+const api = require('./routes/link');
 const app = express();
 
 app.use(logger('dev'));
@@ -31,6 +31,17 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+//MongoDB
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost/dib', {
+    useMongoClient: true,
+    promiseLibrary: require('bluebird')})
+        .then(()=> console.log('Connection successful'))
+        .then(()=> console.log('Listening to port 5000'))
+        .catch((err) => console.log(err));
+
 
 // Setting port
 app.listen(5000);
