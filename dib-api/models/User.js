@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
 
 
-const LinkSchema = new mongoose.Schema({
-    name: {
+const UserSchema = new mongoose.Schema({
+    username: {
         type: String,
         required: true,
-        minlength: 4,
-        maxlength: 150
+        minlength: 3,
+
     },
-    description: {
-        type: String,
-        required: false,
-        maxlength: 150
-    },
-    url: {
+    email: {
         type: String,
         required: true,
-        maxlength: 200
+
+    },
+    password: {
+        type: String,
+        required: true,
+        minlength: 8
     },
     created: {
         type: Date,
@@ -30,6 +30,6 @@ const LinkSchema = new mongoose.Schema({
     }
 });
 
-const Link = mongoose.model('link', LinkSchema);
+const Link = mongoose.model('user', UserSchema);
 
-module.exports = Link;
+module.exports = User;
