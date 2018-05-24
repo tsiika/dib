@@ -16,10 +16,11 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-    axios.get('http://localhost:5000/api/links')
+    axios.get('http://localhost:5000/api/links/')
     .then(res => {
         this.setState({ links: res.data });
         console.log(this.state.links);
+        console.log('Did it really?')
     });
     }
 
@@ -28,12 +29,7 @@ class Dashboard extends Component {
         <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-            <h3 class="panel-title">
-                Your Links
-            </h3>
-            </div>
-            <div class="panel-body">
-            <h4><Link to="/create"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Add Link</Link></h4>
+
             <table class="table table-stripe">
                 <thead>
                 <tr>
@@ -43,10 +39,10 @@ class Dashboard extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                {this.state.links.map(link =>
-                    <tr>
+                {this.state.links.map((link, index) =>
+                    <tr key={index}>
                     <td><Link to={`/show/${link._id}`}>{link.name}</Link></td>
-                    <td>{link.url}</td>
+                    <td><Link to={link.url} target="_blank">{link.url}</Link></td>
                     <td>{link.description}</td>
                     </tr>
                 )}

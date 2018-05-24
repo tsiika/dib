@@ -13,33 +13,34 @@ router.get('/links', function(req, res, next) {
 
 /* Get link by ID */
 router.get('/links/:id', function(req, res, next ){
-    Link.findById(req.params.findById, function(err, post) {
+    Link.findById(req.params.id, function(err, link) {
         if (err) return next(err);
-        res.json(post);
+        res.json(link);
     });
 });
 
+
 /* Save new link */
 router.post('/links', function(req, res, next) {
-    Link.create(req.body, function(err, post) {
+    Link.create(req.body, function(err, link) {
         if (err) return next(err);
-        res.json(post);
+        res.json(link);
     });
 });
 
 /* Update existing link */
 router.put('/links/:id', function(req, res, next) {
-    Link.findOneAndUpdate(req.params.id, req.body, function(err, post) {
+    Link.findOneAndUpdate(req.params.id, req.body, function(err, link) {
         if (err) return next(err);
-        res.json(post);
+        res.json(link);
     });
 });
 
 /* Delete link */
 router.delete('/links/:id', function(req, res, next) {
-    Link.findByIdAndRemove(req.params.id, req.body, function(err, post) {
+    Link.findByIdAndRemove(req.params.id, req.body, function(err, link) {
         if (err) return next(err);
-        res.json(post);
+        res.json(link);
     });
 });
 

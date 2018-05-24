@@ -16,9 +16,9 @@ app.use('/api/', api);
 // Options
 app.options('*', function (req, res, next) {
 
-    res.set('Access-Control-Allow-Origin', req.headers.origin);
+    res.set('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     res.send('OPTIONS response');
 });
@@ -35,7 +35,7 @@ app.use(function(err, req, res, next) {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
     // Error render
-    res.status(500).json({ "message": "Error" });
+    res.status(500).json({ "message": "Internal Server Error" });
     
 });
 

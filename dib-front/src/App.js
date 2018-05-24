@@ -10,28 +10,15 @@ import Create from './components/Links/Create';
 import Show from './components/Links/Show';
 import Dashboard from './modules/Dashboard';
 
+import Menu from './components/Menu';
+import Home from './modules/Home';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <img src={Logo}  />
-
-        <h1 className="App-title">&copy; <a href="https://github.com/tsiika">Tsiika</a> 2018</h1>
-        <h2>Täällä voi muokata linkkejä joskus</h2>
-          <Link to="/dashboard" component={Dashboard}>Dashboard</Link>
-          <hr/><br/><br/>
-
-          <Route>
-            <div>          
-            
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path='/create' component={Create} />
-
-            </div>
-          </Route>
-
-
-
+          <Menu />
+          <Home />
       </div>
       
     );

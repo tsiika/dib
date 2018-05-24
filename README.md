@@ -25,6 +25,13 @@ And as they open up the new tab, this page will appear to them!
 
 This project is running on React, Nodejs and MongoDB. 
 
+## Bugs
+24/05/2018
+- When selecting the site from dashboard to show individual information about site, React doesn't parse the ID of selected site correctly. This will follow error  500 and now showing any data.
+    - In backend you can see the data correctly using Insomnia for viewing for example.
+- This same problem occurs also in editing site.
+- Deleting the data is also affected by this.
+
 ## License
-The license can be found at LICENSE file, but if you want to know it now:
+The license can be found at LICENSE file, but if you want to know it now:  
 **MIT LICENSE**

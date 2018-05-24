@@ -34,24 +34,24 @@ class Create extends Component {
         <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
+            
             <h3 class="panel-title">
                 Add Link
             </h3>
             </div>
             <div class="panel-body">
-            <h4><Link to="/"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Dashboard</Link></h4>
             <form onSubmit={this.onSubmit}>
                 <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" name="name" value={name} onChange={this.onChange} placeholder="Name" />
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" name="name" value={name} onChange={this.onChange} placeholder="Name" />
                 </div>
                 <div class="form-group">
-                <label for="description">Description:</label>
-                <textArea class="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{description}</textArea>
+                    <label for="description">Description:</label>
+                    <textArea class="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{description}</textArea>
                 </div>
                 <div class="form-group">
-                <label for="url">URL:</label>
-                <input type="text" class="form-control" name="url" value={url} onChange={this.onChange} placeholder="https://google.com" />
+                    <label for="url">URL:</label>
+                    <input type="text" class="form-control" name="url" value={url} onChange={this.onChange} placeholder="https://google.com" />
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
