@@ -1,4 +1,4 @@
-/**FIXME
+/** FIXME
  * For some reason react doesn't know how to parse the link._id.
  * When you press the name in dashboard it should go to "/show/[ID]". 
  * It goes to the right page alright, but axios doesn't fetch the details of given ID nor delete it.
@@ -6,7 +6,7 @@
  * Right now the backend functions correctly at "http://localhost:5000/api/links/[ID]" with all REST functions. This is tested with Insomnia.
  */
 
-/**TODO
+/** TODO
  * Fix the previously mentioned problem.
  */
 
@@ -18,21 +18,21 @@ class Show extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            link: {}
+            link: []
         };
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/api/links/'+this.props.match.params._id)
+        axios.get('/api/links/'+this.props.match.params._id)
             .then(res => {
                 this.setState({link: res.data});
-                console.log(this.state.link);
+                console.log(res.data);
             });
     }
 
     delete(id){
         console.log(id);
-            axios.delete('http://localhost:5000/api/links/'+id)
+            axios.delete('/api/links/'+id)
                 .then((result) => {
                     this.props.history.push("/")
                 });
@@ -45,16 +45,17 @@ class Show extends Component {
                     <div class="panel-heading">
                     <h3 class="panel-title">
                         {this.state.link.name}
-                    </h3>
+                    </h3><hr/>
                     </div>
                     <div class="panel-body">
+                    
                     <dl>
-                        <dt>Name</dt>
+                        <dt>Name:</dt>
                         <dd>{this.state.link.name}</dd>
 
-                        <dt>Description</dt>
+                        <dt>Description:</dt>
                         <dd>{this.state.link.description}</dd>
-                        <dt>Url</dt>
+                        <dt>Url:</dt>
                         <dd>{this.state.link.url}</dd>
                     </dl>
                     <Link to={`/edit/${this.state.link._id}`} class="btn btn-success">Edit</Link>&nbsp;

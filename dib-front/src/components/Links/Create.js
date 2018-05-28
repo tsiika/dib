@@ -22,7 +22,7 @@ class Create extends Component {
 
         const { name, description, url } = this.state;
 
-        axios.post('http://localhost:5000/api/links', { name, description, url })
+        axios.post('/api/links', { name, description, url })
             .then((result) => {
                 this.props.history.push("/")
             });

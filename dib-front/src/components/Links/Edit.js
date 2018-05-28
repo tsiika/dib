@@ -14,7 +14,7 @@ class Edit extends Component {
         };
     }
     componentDidMount(){
-        axios.get('http://localhost:5000/api/links/'+this.props.match.params._id)
+        axios.get('/api/links/'+this.props.match.params._id)
             .then(res => {
                 this.setState({ link: res.data });
                 console.log(this.state.link);
@@ -32,7 +32,7 @@ class Edit extends Component {
 
         const { name, description, url } = this.state.link;
 
-        axios.put('http://localhost:5000/api/links/'+this.props.match.params.id, { name, description, url })
+        axios.put('/api/links/'+this.props.match.params.id, { name, description, url })
             .then((result) => {
                 this.props.history.push('/show/'+this.props.match.params.id)
             });

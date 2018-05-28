@@ -8,19 +8,35 @@ import './App.css';
 import Edit from './components/Links/Edit';
 import Create from './components/Links/Create';
 import Show from './components/Links/Show';
-import Dashboard from './modules/Dashboard';
-
 import Menu from './components/Menu';
-import Home from './modules/Home';
+
+import Front from './modules/Front';
+import Dashboard from './modules/Dashboard';
+import Container from './modules/Container';
+
+import NoMatch from './modules/404';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
+
           <Menu />
-          <Home />
+          <Container />
+
+          <Switch>
+            <Route exact path='/' component={Front} />
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/create' component={Create} />
+            <Route path='/edit/:_id' component={Edit} />
+            <Route path='/show/:_id' component={Show} />
+
+            <Route path="*" component={NoMatch} />
+          </Switch>
       </div>
       
+
     );
   }
 }

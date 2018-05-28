@@ -25,13 +25,23 @@ And as they open up the new tab, this page will appear to them!
 
 This project is running on React, Nodejs and MongoDB. 
 
+### Roadmap
+
+- [x] REST API
+- [x] Sites can be added, edited and deleted.
+- [ ] Registration and login system
+- [ ] Binding added sites to user
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] ???
+- [ ] Styling the front-end
+- [ ] Deploy somewhere
+
+
 ## Bugs
-24/05/2018
-- When selecting the site from dashboard to show individual information about site, React doesn't parse the ID of selected site correctly. This will follow error  500 and now showing any data.
-    - In backend you can see the data correctly using Insomnia for viewing for example.
-- This same problem occurs also in editing site.
-- Deleting the data is also affected by this.
+Information regarding bugs and bugfixes can be found at **[BUGFIX.md](BUGFIX.md)**
 
 ## License
 The license can be found at LICENSE file, but if you want to know it now:  
-**MIT LICENSE**
+**[MIT LICENSE](LICENSE)**

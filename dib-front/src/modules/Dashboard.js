@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch, Router } from 'react-router-dom';
 import axios from 'axios';
 
 import Edit from '../components/Links/Edit';
@@ -16,11 +16,10 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-    axios.get('http://localhost:5000/api/links/')
+    axios.get('/api/links/')
     .then(res => {
         this.setState({ links: res.data });
         console.log(this.state.links);
-        console.log('Did it really?')
     });
     }
 
@@ -39,8 +38,9 @@ class Dashboard extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                {this.state.links.map((link, index) =>
-                    <tr key={index}>
+                    
+                {this.state.links.map((link) =>
+                    <tr key={link._id}>
                     <td><Link to={`/show/${link._id}`}>{link.name}</Link></td>
                     <td><Link to={link.url} target="_blank">{link.url}</Link></td>
                     <td>{link.description}</td>
@@ -50,6 +50,7 @@ class Dashboard extends Component {
             </table>
             </div>
         </div>
+
         </div>
     );
     }
