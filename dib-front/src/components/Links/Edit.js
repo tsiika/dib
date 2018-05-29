@@ -31,9 +31,9 @@ class Edit extends Component {
 
         const { name, description, url } = this.state.link;
 
-        axios.put('/api/links/'+this.props.match.params.id, { name, description, url })
+        axios.put('/api/links/'+this.props.match.params._id, { name, description, url })
             .then((result) => {
-                this.props.history.push('/show/'+this.props.match.params.id)
+                this.props.history.push('/show/'+this.props.match.params._id)
             });
     }
     
@@ -63,7 +63,7 @@ class Edit extends Component {
                 <label for="url">URL:</label>
                 <input type="text" class="form-control" name="url" value={this.state.link.url} onChange={this.onChange} placeholder="https://google.com" />
                 </div>
-                <Link to={`/show/${this.state.link._id}`} class="btn btn-warning">Return</Link>&nbsp;
+
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             </div>
