@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link, Route, Switch, Router } from 'react-router-dom';
 import axios from 'axios';
 
+import feather from 'feather-icons';
+
 import Edit from '../components/Links/Edit';
 import Create from '../components/Links/Create';
 import Show from '../components/Links/Show';
@@ -35,15 +37,19 @@ class Dashboard extends Component {
                     <th>Name</th>
                     <th>Url</th>
                     <th>Description</th>
+                    <th>Date created</th>
+                    <th>Tools</th>
                 </tr>
                 </thead>
                 <tbody>
                     
                 {this.state.links.map((link) =>
                     <tr key={link._id}>
-                    <td><Link to={`/show/${link._id}`}>{link.name}</Link></td>
+                    <td>{link.name}</td>
                     <td><Link to={link.url} target="_blank">{link.url}</Link></td>
                     <td>{link.description}</td>
+                    <td>{link.created}</td>
+                    <td><Link to={`/show/${link._id}`}><ion-icon name="settings" alt="Edit" title="Edit"></ion-icon></Link></td>
                     </tr>
                 )}
                 </tbody>

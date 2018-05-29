@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -18,18 +18,18 @@ const UserSchema = new mongoose.Schema({
         required: true,
         minlength: 8
     },
+    passwordConf: {
+        type: String,
+        required: true
+    },
     created: {
         type: Date,
         default: Date.now,
         required: true
     },
-    updated: {
-        type: Date,
-        default: Date.now,
-        required: true
-    }
+
 });
 
-const Link = mongoose.model('user', UserSchema);
+const User = mongoose.model('user', UserSchema);
 
 module.exports = User;

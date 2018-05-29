@@ -8,9 +8,14 @@ import '../App.css';
 class Front extends Component {
     render() {
     return (
-        <div>
-            <img src={Logo}/>
-            
+        <div className="container">
+            <div className="row">
+                <div className="col-12">
+                    <img src={Logo}/>
+
+                    <h1>New era of front pages is here!</h1>
+                </div>
+            </div>
         </div>
     );
     }

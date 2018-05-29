@@ -9,10 +9,13 @@ import Edit from './components/Links/Edit';
 import Create from './components/Links/Create';
 import Show from './components/Links/Show';
 import Menu from './components/Menu';
+import Login from './components/Login';
+import Register from './components/Register';
 
 import Front from './modules/Front';
 import Dashboard from './modules/Dashboard';
 import Container from './modules/Container';
+import Footer from './modules/Footer';
 
 import NoMatch from './modules/404';
 
@@ -24,6 +27,7 @@ class App extends Component {
 
           <Menu />
           <Container />
+          <Footer />
 
           <Switch>
             <Route exact path='/' component={Front} />
@@ -31,6 +35,8 @@ class App extends Component {
             <Route path='/create' component={Create} />
             <Route path='/edit/:_id' component={Edit} />
             <Route path='/show/:_id' component={Show} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
 
             <Route path="*" component={NoMatch} />
           </Switch>

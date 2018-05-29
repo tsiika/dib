@@ -4,8 +4,32 @@
 
 .navstyle {
   margin-bottom: 25px;
+  background-color: rgb(80, 125, 188, 0.6) !important;
 }
 
 .container {
   text-align: center;
+}
+
+.box {
+  margin: 5;
+  padding: 2%;
+  border-left: none;
+  border-right: none;
+  border-top: 1px rgb(0, 0, 0, 0.3) solid;
+  border-bottom: 1px rgb(0, 0, 0, 0.3) solid;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(80, 125, 188, 0.6);
+  color: white;
+  text-align: center;
+}
+
+.navblock {
+
 }

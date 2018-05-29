@@ -45,9 +45,9 @@ class Show extends Component {
                     <div class="panel-heading">
                     <h3 class="panel-title">
                         {this.state.link.name}
-                    </h3><hr/>
+                    </h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body box">
                     
                     <dl>
                         <dt>Name:</dt>
@@ -57,7 +57,8 @@ class Show extends Component {
                         <dd>{this.state.link.description}</dd>
                         <dt>Url:</dt>
                         <dd>{this.state.link.url}</dd>
-                    </dl>
+                    </dl><hr/>
+                    <Link to="/dashboard" class="btn btn-warning">Return</Link>&nbsp;
                     <Link to={`/edit/${this.state.link._id}`} class="btn btn-success">Edit</Link>&nbsp;
                     <button onClick={this.delete.bind(this, this.state.link._id)} class="btn btn-danger">Delete</button>
                     </div>

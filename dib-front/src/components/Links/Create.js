@@ -53,6 +53,7 @@ class Create extends Component {
                     <label for="url">URL:</label>
                     <input type="text" class="form-control" name="url" value={url} onChange={this.onChange} placeholder="https://google.com" />
                 </div>
+                <Link to="/dashboard" class="btn btn-warning">Return</Link>&nbsp;
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             </div>

@@ -31,6 +31,8 @@ This project is running on React, Nodejs and MongoDB.
 - [x] Sites can be added, edited and deleted.
 - [ ] Registration and login system
 - [ ] Binding added sites to user
+- [ ] Customizable dashboard
+- [ ] Profile pages
 - [ ] ???
 - [ ] ???
 - [ ] ???

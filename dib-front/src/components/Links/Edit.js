@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import Create from './Create';
-import Show from './Show';
+
 
 
 class Edit extends Component {
@@ -64,7 +63,7 @@ class Edit extends Component {
                 <label for="url">URL:</label>
                 <input type="text" class="form-control" name="url" value={this.state.link.url} onChange={this.onChange} placeholder="https://google.com" />
                 </div>
-
+                <Link to={`/show/${this.state.link._id}`} class="btn btn-warning">Return</Link>&nbsp;
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             </div>
