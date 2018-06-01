@@ -11,6 +11,37 @@
 - Deleting the data is also affected by this.
 
 # Bugfixes
+
+<hr/>
+
+__ID:2__
+
+- Bug was at the REST API. Just change of method fixed the problem.
+
+Before: 
+
+```
+router.put('/links/:id', function(req, res, next) {
+    Link.findOneAndUpdate(req.params.id, req.body, function(err, link) {
+        if (err) return next(err);
+        res.json(link);
+    });
+});
+```
+
+
+After: 
+```
+router.put('/links/:id', function(req, res, next) {
+    Link.findByIdAndUpdate(req.params.id, req.body, function(err, link) {
+        if (err) return next(err);
+        res.json(link);
+    });
+});
+```
+
+<hr/>
+
 __ID:1__
 
 - The bug occured because I simply forgot to add underscore for react-router-dom's Routes.

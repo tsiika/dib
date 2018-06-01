@@ -30,7 +30,7 @@ router.post('/links', function(req, res, next) {
 
 /* Update existing link */
 router.put('/links/:id', function(req, res, next) {
-    Link.findOneAndUpdate(req.params.id, req.body, function(err, link) {
+    Link.findByIdAndUpdate(req.params.id, req.body, function(err, link) {
         if (err) return next(err);
         res.json(link);
     });

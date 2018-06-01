@@ -41,30 +41,30 @@ class Edit extends Component {
     render() {
     return (
         <div>
-    <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-            <h3 class="panel-title">
+    <div className="container">
+        <div className="panel panel-default">
+            <div className="panel-heading">
+            <h3 className="panel-title">
                 EDIT LINK
             </h3>
             </div>
-            <div class="panel-body">
+            <div className="panel-body">
             <h4><Link to={`/show/${this.state.link._id}`}><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Link List</Link></h4>
             <form onSubmit={this.onSubmit}>
-                <div class="form-group">
+                <div className="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" name="name" value={this.state.link.name} onChange={this.onChange} placeholder="Name" />
+                <input type="text" className="form-control" name="name" value={this.state.link.name} onChange={this.onChange} placeholder="Name" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                 <label for="description">Description:</label>
-                <input type="text" class="form-control" name="description" value={this.state.link.description} onChange={this.onChange} placeholder="Description" />
+                <input type="text" className="form-control" name="description" value={this.state.link.description} onChange={this.onChange} placeholder="Description" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                 <label for="url">URL:</label>
-                <input type="text" class="form-control" name="url" value={this.state.link.url} onChange={this.onChange} placeholder="https://google.com" />
+                <input type="text" className="form-control" name="url" value={this.state.link.url} onChange={this.onChange} placeholder="https://google.com" />
                 </div>
 
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" className="btn btn-default"><Link to={'/dasboard'}>Submit</Link></button>
             </form>
             </div>
         </div>
