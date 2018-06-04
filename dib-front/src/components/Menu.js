@@ -14,11 +14,6 @@ import Dashboard from '../modules/Dashboard';
 import Home from '../modules/Container';
 import NoMatch from '../modules/404';
 
-
-
-
-
-
 class Menu extends Component {
     
     render() {
@@ -33,7 +28,7 @@ class Menu extends Component {
                     </ul>
                 </div>
                 <div className="mx-auto order-0">
-                    <a className="navbar-brand mx-auto" href="#">dib</a>
+                    <a className="navbar-brand mx-auto" href="/">dib</a>
                 </div>
                 <div className="navbar w-100 order-3 ">
                     <ul className="navbar-nav ml-auto">

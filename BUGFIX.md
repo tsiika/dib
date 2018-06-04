@@ -1,4 +1,13 @@
 # Bugs
+
+04/06/2018 __ID:3__
+- Front-end authentication problems
+    - Login and registration works fine, but authorization for certain pages is not functioning properly.
+        - Viewing the dashboard after login is not working. 
+        - Adding new links is not behind any authorized paths, but it still gives 401 at backend.
+
+
+
 29/05/2018 __ID:2__
 - Editing is not working properly.
     - When you choose link to edit and make the changes some reason first link on the list gets the edits, not the selected one. 

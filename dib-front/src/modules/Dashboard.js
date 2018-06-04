@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch, Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import feather from 'feather-icons';
 
-import Edit from '../components/Links/Edit';
-import Create from '../components/Links/Create';
-import Show from '../components/Links/Show';
 
 class Dashboard extends Component {
 
@@ -18,12 +14,24 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-    axios.get('/api/links/')
-    .then(res => {
-        this.setState({ links: res.data });
-        console.log(this.state.links);
-    });
-    }
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+            axios.get('/api/links/')
+            .then(res => {
+                this.setState({ links: res.data });
+                console.log(this.state.links);
+            })
+            .catch((error) => {
+                if(error.response.status === 401) {
+                    this.props.history.push('/login');
+                }
+            });
+        }
+        
+        logout = () => {
+            localStorage.removeItem('jwtToken');
+            window.location.reload();
+        }
+        
 
     render() {
     return (

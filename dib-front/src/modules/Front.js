@@ -11,7 +11,7 @@ class Front extends Component {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <img src={Logo}/>
+                    <img src={Logo} alt="dib logo"/>
 
                     <h1>New era of front pages is here!</h1>
                 </div>

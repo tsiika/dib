@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/auth0-js/build/auth0.js';
 
 import Logo from './assets/dib.png';
 import './App.css';
 
+/* Components */ 
 import Edit from './components/Links/Edit';
 import Create from './components/Links/Create';
 import Show from './components/Links/Show';
 import Menu from './components/Menu';
 import Login from './components/Login';
 import Register from './components/Register';
+
+
+/* Modules*/
 
 import Front from './modules/Front';
 import Dashboard from './modules/Dashboard';
