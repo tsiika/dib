@@ -29,7 +29,8 @@ This project is running on React, Nodejs and MongoDB.
 
 - [x] REST API
 - [x] Sites can be added, edited and deleted.
-- [x] Registration and login system (__ID:3__)
+- [x] Registration and login system 
+- [ ] Front-end validation on session management
 - [ ] Binding added sites to user
 - [ ] Customizable dashboard
 - [ ] Profile pages

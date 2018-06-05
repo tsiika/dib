@@ -59,6 +59,27 @@ app.use(function(err, req, res, next) {
 // Login and register
 app.use('/api/auth', auth);
 
+// Session initializing
+app.use(session({
+    key: 'u_id',
+    secret: 'dibsessionsecret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 60000
+    }
+}));
+
+// Session middleware for checking saved cookies in browser
+app.use((req, res, next) => {
+    if(req.cookies.u_id && !req.session.user) {
+        res.clearCookie('u_id');
+    }
+    next();
+});
+
+// Checking logged in users
+app.use
 
 //MongoDB
 const mongoose = require('mongoose');
