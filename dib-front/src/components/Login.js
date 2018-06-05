@@ -28,7 +28,7 @@ class Login extends Component {
             .then((result) => {
                 localStorage.setItem('jwtToken', result.data.token);
                 this.setState({ message: ''});
-                this.props.history.push('/')
+                this.props.history.push('/profile')
             })
             .catch((error) => {
                 if(error.response.status === 401) {

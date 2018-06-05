@@ -23,6 +23,24 @@
 
 <hr/>
 
+
+__ID:3__
+- Bug occured in passport.js configuration file. Simply one underscore had to be removed.
+
+Before:
+```
+User.findOne({id: jwt_payload._id}
+```
+
+After:
+
+```
+User.findOne({id: jwt_payload.id}
+```
+
+
+<hr/>
+
 __ID:2__
 
 - Bug was at the REST API. Just change of method fixed the problem.

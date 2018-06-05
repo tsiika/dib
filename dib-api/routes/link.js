@@ -7,7 +7,7 @@ const passport = require('passport');
 require('../config/passport')(passport);
 
 /* GET links */
-router.get('/links', passport.authenticate('jwt',  { session: false }), function(req, res, next) {
+router.get('/links', passport.authenticate('jwt',  { session: false }), function(req, res) {
     var token = getToken(req.headers);
     if(token) {
         Link.find(function (err, links) {
@@ -58,7 +58,7 @@ router.delete('/links/:id', function(req, res, next) {
 });
 
 getToken = function(headers) {
-    if(ehaders && headers.authorization) {
+    if(headers && headers.authorization) {
         var parted = headers.authorization.split(' ');
         if(parted.length === 2) {
             return parted[1];

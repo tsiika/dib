@@ -13,6 +13,7 @@ import Show from './components/Links/Show';
 import Menu from './components/Menu';
 import Login from './components/Login';
 import Register from './components/Register';
+import Profile from './components/Profile';
 
 
 /* Modules*/
@@ -42,6 +43,7 @@ class App extends Component {
             <Route path='/show/:_id' component={Show} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+            <Route path='/profile' component={Profile} />
 
             <Route path="*" component={NoMatch} />
           </Switch>
