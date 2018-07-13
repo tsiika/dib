@@ -9,6 +9,7 @@ class Create extends Component {
             name: '',
             description: '',
             url: '',
+            message: ''
         };
     }
     onChange = (e) => {
@@ -55,6 +56,7 @@ class Create extends Component {
                 </div>
                 <Link to="/dashboard" class="btn btn-warning">Return</Link>&nbsp;
                 <button type="submit" class="btn btn-default">Submit</button>
+                
             </form>
             </div>
         </div>

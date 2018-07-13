@@ -17,8 +17,7 @@ const MongoStore = require('connect-mongo')(session);
 const api = require('./routes/link');
 const auth = require('./routes/auth');
 
-
-
+var config = require('./config/settings');
 
 // CORS settings
 app.use(cors());
@@ -83,11 +82,10 @@ app.use
 
 //MongoDB
 const mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/dib', {
-    promiseLibrary: require('bluebird')})
-        .then(()=> console.log('Connection to database successful'))
-        .catch((err) => console.log(err));
+mongoose.Promise = global.Promise;
+mongoose.connect(config.mongo.uri, config.mongo.options);
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 // Setting port

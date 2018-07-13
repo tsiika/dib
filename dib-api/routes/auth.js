@@ -6,6 +6,26 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const User = require('../models/User');
 
+/*
+router.get('/profile/', function(req, res, next ){
+    User.findById(req.params._id, function(err, user) {
+        if (err) return next(err);
+        res.json(user);
+    });
+}); */
+
+router.get('/profile', passport.authenticate('jwt',  { session: false }), function(req, res) {
+    var token = getToken(req.headers);
+    if(token) {
+        User.findOneById(req.params._id, function(err, user) {
+            if (err) return next(err);
+            res.json(user);
+        });
+    } else {
+        return res.status(403).send({ success: false, msg: 'Unanthorized'});
+    }
+});
+
 router.post('/register', function(req, res) {
     if(!req.body.username || !req.body.password) {
         res.json({ success: false, msg: 'Please enter username and password.'});

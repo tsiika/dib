@@ -1,3 +1,8 @@
 module.exports = {
-    'secret':'sibhasthebestsecureseu'
+    secret:'sibhasthebestsecureseu',
+    mongo: {
+    uri: 'mongodb://localhost:27017/dib'
+
+},
+
 };
