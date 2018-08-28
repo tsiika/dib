@@ -32,7 +32,7 @@ class Login extends Component {
             })
             .catch((error) => {
                 if(error.response.status === 401) {
-                    this.setState({ message: 'Login failed, username and password dont match!'});
+                    this.setState({ message: 'Login failed, username and password invalid!'});
                 }
             });
     }

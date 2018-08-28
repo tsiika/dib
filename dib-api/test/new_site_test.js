@@ -14,7 +14,7 @@ describe('Test for saving new link.', function(){
             });
             link.save().then(function(){
                 assert(link.isNew === false);
-                done();
+                return done();
             }); 
         });
 });

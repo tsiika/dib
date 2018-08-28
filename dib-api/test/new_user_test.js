@@ -7,12 +7,13 @@ describe('Test for saving new user.', function(){
         //Create test
         it("New link saved to database", function(done){
             var user = new User({
-                username:"Käyttäjä1",
+                username:"Käyttäjä",
                 password:"salasana1234",
             });
+        
             user.save().then(function(){
                 assert(user.isNew === false);
-                done();
+                return done();
             }); 
-        });
+    });
 });

@@ -10,6 +10,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    user_link: {
+        type: Schema.Types.ObjectId,
+        ref: 'LinkSchema'
+    },
     created: {
         type: Date,
         default: Date.now,
