@@ -10,7 +10,7 @@ import './App.css';
 import Edit from './components/Links/Edit';
 import Create from './components/Links/Create';
 import Show from './components/Links/Show';
-import Menu from './components/Menu';
+import MainMenu from './components/Menu';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Register';
@@ -22,7 +22,7 @@ import Profile from './components/Profile';
 import Front from './modules/Front';
 import Dashboard from './modules/Dashboard';
 import Container from './modules/Container';
-import Footer from './modules/Footer';
+import SiteFooter from './modules/Footer';
 
 import NoMatch from './modules/404';
 
@@ -32,9 +32,9 @@ class App extends Component {
     return (
       <div>
 
-          <Menu />
+          <MainMenu />
           <Container />
-          <Footer />
+          <SiteFooter />
 
           <Switch>
             <Route exact path='/' component={Front} />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch, Router } from 'react-router-dom';
 import axios from 'axios';
+import { Menu, Icon } from 'antd';
 
 /* Components */
 import Edit from '../components/Links/Edit';
@@ -16,10 +17,14 @@ import Dashboard from '../modules/Dashboard';
 import Home from '../modules/Container';
 import NoMatch from '../modules/404';
 
-class Menu extends Component {
+class MainMenu extends Component {
     
     constructor(props) {
         super(props);
+    }
+
+    state = {
+        current: 'home',
     }
 
     componentDidMount() {
@@ -30,34 +35,53 @@ class Menu extends Component {
         localStorage.removeItem('jwtToken');
         this.props.history.push('/');
     }
+
+    handleClick = (e) => {
+        console.log('click ', e);
+        this.setState({
+            current: e.key,
+        });
+    }
     
     render() {
     return (
             <div>
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark navstyle">
-                    <div className="navbar w-100 order-1 order-md-0 ">
-                        <ul className="navbar-nav mr-auto">
-                        <li className="nav-item"><Link to="/" component={Front} className="nav-link">Home</Link></li>
-                                <li className="nav-item"><Link to="/dashboard" component={Dashboard} className="nav-link">Dashboard</Link></li>
-                                <li className="nav-item"><Link to="/create" component={Create} className="nav-link">Add Link</Link></li>
-                        </ul>
-                    </div>
-                    <div className="mx-auto order-0">
-                        <a className="navbar-brand mx-auto" href="/">dib</a>
-                    </div>
-                    <div className="navbar w-100 order-3 ">
-                        <ul className="navbar-nav ml-auto">
-                        <li className="nav-item"><Link to="/login" component={Login} className="nav-link">Login</Link></li>
-                        <li className="nav-item"><Link to="/register" component={Register} className="nav-link">Register</Link></li>
-                        <li className="nav-item">{ localStorage.getItem('jwtToken') &&
-                        <Link to="/logout" className="nav-link" component={Logout} onClick={this.logout}>Logout</Link>
-                            }</li>
-                        </ul>
-                    </div>
-                </nav>
+                <Menu
+                onClick={this.handleClick}
+                selectedKeys={[this.state.current]}
+                mode="horizontal"
+                >
+                    
+                        <Menu.Item key="home">
+                            <Link to="/" component={Front}> <Icon type="home" theme="outlined" /> Home</Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            <Link to="/dashboard" component={Dashboard}><Icon type="profile" theme="outlined" /> Dashboard</Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            <Link to="/create" component={Create}><Icon type="plus-circle" theme="outlined" /> Add Link</Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            <Link to="/login" component={Login}><Icon type="login" theme="outlined" />Login</Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            <Link to="/register" component={Register}> <Icon type="user-add" theme="outlined" />Register</Link>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            { localStorage.getItem('jwtToken') &&
+                            <Link to="/logout" component={Logout} onClick={this.logout}><Icon type="close-circle" theme="outlined" /> Logout</Link>
+                                }
+                        </Menu.Item>
+                </Menu>
+
             </div>
         );
     }
 }
 
-export default Menu;
+export default MainMenu;

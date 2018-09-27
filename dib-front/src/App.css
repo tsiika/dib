@@ -1,10 +1,7 @@
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
-}
-
-.navstyle {
-  margin-bottom: 25px;
-  background-color: rgb(80, 125, 188, 0.6) !important;
 }
 
 .container {

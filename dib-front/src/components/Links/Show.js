@@ -13,6 +13,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 
 class Show extends Component {
     constructor(props) {
@@ -58,9 +59,9 @@ class Show extends Component {
                         <dt>Url:</dt>
                         <dd>{this.state.link.url}</dd>
                     </dl><hr/>
-                    <Link to="/dashboard" class="btn btn-warning">Return</Link>&nbsp;
-                    <Link to={`/edit/${this.state.link._id}`} class="btn btn-success">Edit</Link>&nbsp;
-                    <button onClick={this.delete.bind(this, this.state.link._id)} class="btn btn-danger">Delete</button>
+                    <Button type="default"><Link to="/dashboard">Return</Link></Button>&nbsp;
+                    <Button type="default"><Link to={`/edit/${this.state.link._id}`} >Edit</Link></Button>&nbsp;
+                    <Button type="danger" onClick={this.delete.bind(this, this.state.link._id)} >Delete</Button>
                     </div>
                 </div>
                 </div>

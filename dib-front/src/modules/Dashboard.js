@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Icon } from 'antd';
 
 
 
@@ -57,7 +58,7 @@ class Dashboard extends Component {
                     <td><Link to={link.url} target="_blank">{link.url}</Link></td>
                     <td>{link.description}</td>
                     <td>{link.created}</td>
-                    <td><Link to={`/show/${link._id}`}><ion-icon name="settings" alt="Edit" title="Edit"></ion-icon></Link></td>
+                    <td><Link to={`/show/${link._id}`}><Icon type="tool" theme="outlined" /></Link></td>
                     </tr>
                 )}
                 </tbody>

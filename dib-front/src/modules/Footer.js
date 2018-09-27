@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
+import {} from 'antd';
 
-class Footer extends Component {
+class SiteFooter extends Component {
     render() {
     return (
         <div>
@@ -15,4 +16,4 @@ class Footer extends Component {
 
 
 
-export default Footer;
+export default SiteFooter;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 
 
 
@@ -64,7 +65,7 @@ class Edit extends Component {
                 <input type="text" className="form-control" name="url" value={this.state.link.url} onChange={this.onChange} placeholder="https://google.com" />
                 </div>
 
-                <button type="submit" className="btn btn-default"><Link to={'/dasboard'}>Submit</Link></button>
+                <Button type="submit primary"><Link to={'/dasboard'}>Submit</Link></Button>
             </form>
             </div>
         </div>
