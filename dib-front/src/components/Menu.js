@@ -57,11 +57,15 @@ class MainMenu extends Component {
                         </Menu.Item>
 
                         <Menu.Item>
+                            { localStorage.getItem('jwtToken') &&
                             <Link to="/dashboard" component={Dashboard}><Icon type="profile" theme="outlined" /> Dashboard</Link>
+                            }
                         </Menu.Item>
 
                         <Menu.Item>
+                            { localStorage.getItem('jwtToken') &&
                             <Link to="/create" component={Create}><Icon type="plus-circle" theme="outlined" /> Add Link</Link>
+                            }
                         </Menu.Item>
 
                         <Menu.Item>

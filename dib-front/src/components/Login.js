@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
+
+
 
 import '../styles/login.css';
+
+
+const FormItem = Form.Item;
 
 class Login extends Component {
     constructor() {
@@ -37,13 +43,15 @@ class Login extends Component {
             });
     }
 
+
     render() {
         const { username, password, message } = this.state;
+
         return (
             <div className="container">
+                
                 <form class="form-signin" onSubmit={this.onSubmit}>
                     <h2 class="form-signin-heading">Login</h2>
-                    <p>Login service is not available!</p>
                     
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" class="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>

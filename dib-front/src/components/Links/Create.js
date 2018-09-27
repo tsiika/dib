@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 
 class Create extends Component {
     constructor() {
@@ -12,6 +13,21 @@ class Create extends Component {
             message: ''
         };
     }
+
+    componentDidMount() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+            axios.get('/api/links/')
+            .then(res => {
+                this.setState({ links: res.data });
+                console.log(this.state.links);
+            })
+            .catch((error) => {
+                if(error.response.status === 401) {
+                    this.props.history.push('/login');
+                }
+            });
+        }
+
     onChange = (e) => {
         const state = this.state
         state[e.target.name] = e.target.value;
@@ -44,18 +60,19 @@ class Create extends Component {
             <form onSubmit={this.onSubmit}>
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" name="name" value={name} onChange={this.onChange} placeholder="Name" />
+                    <input type="text" class="form-control" name="name" value={name} onChange={this.onChange} placeholder="Name" required={true} />
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textArea class="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{description}</textArea>
+                    <textArea class="form-control" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3" required={true} >{description}</textArea>
                 </div>
                 <div class="form-group">
                     <label for="url">URL:</label>
-                    <input type="text" class="form-control" name="url" value={url} onChange={this.onChange} placeholder="https://google.com" />
+                    <input type="text" class="form-control" name="url" value={url} onChange={this.onChange} placeholder="https://google.com" required={true} />
                 </div>
-                <Link to="/dashboard" class="btn btn-warning">Return</Link>&nbsp;
-                <button type="submit" class="btn btn-default">Submit</button>
+                <Button type="default" htmlType="submit">Submit</Button>&nbsp;
+                <Button type="danger"><Link to="/dashboard">Return</Link></Button>
+
                 
             </form>
             </div>
