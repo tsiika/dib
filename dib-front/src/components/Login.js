@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
 
 
 
@@ -49,24 +49,27 @@ class Login extends Component {
 
         return (
             <div className="container">
-                
-                <form class="form-signin" onSubmit={this.onSubmit}>
-                    <h2 class="form-signin-heading">Login</h2>
-                    
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" class="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" class="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
-                    <button class="btn btn-primary" type="submit">Login</button>
-                <p>
-                    Not a member? <Link to="/register"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Register here</Link>
-                </p>
+                <Row>
+                    <Col span={24}>
+                        <form onSubmit={this.onSubmit}>
+                            <h1>Login</h1>
 
-                { message !== '' &&
-                    <div class="alert alert-warning alert-dismissible" role="alert">
-                        { message }
-                    </div> }
-                </form>
+                            <Input prefix={<Icon type="user" className="icon-style"/>} type="email" placeholder="Email" name="username" value={username} onChange={this.onChange} className="input-style" required /> 
+                            
+                            <Input prefix={<Icon type="lock" className="icon-style"/>} type="password" placeholder="Password" name="password" value={password} onChange={this.onChange} className="input-style" required />
+                            <br/>
+                            <Button type="primary" htmlType="submit" className="input-btn" block>Login</Button>
+                        <p className="lt">
+                            Not a member? <Link to="/register"> Register here</Link>
+                        </p>
+
+                        { message !== '' &&
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                { message }
+                            </div> }
+                        </form>
+                    </Col>
+                </Row>
             </div>
         );
     }
