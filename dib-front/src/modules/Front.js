@@ -1,3 +1,7 @@
+/* 
+Make image responsive in the future.
+**/
+
 import React, { Component } from 'react';
 import { Row, Col } from 'antd'; 
 

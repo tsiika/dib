@@ -55,9 +55,11 @@ class Show extends Component {
                         <dd>{this.state.link.name}</dd>
 
                         <dt>Description:</dt>
-                        <dd>{this.state.link.description}</dd>
+                        <dd>{this.state.link.description}</dd><br/>
                         <dt>Url:</dt>
                         <dd>{this.state.link.url}</dd>
+                        <dt>Date created:</dt>
+                        <dd>{this.state.link.created}</dd>
                     </dl><hr/>
                     <Button type="default"><Link to="/dashboard">Return</Link></Button>&nbsp;
                     <Button type="default"><Link to={`/edit/${this.state.link._id}`} >Edit</Link></Button>&nbsp;

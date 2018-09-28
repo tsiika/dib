@@ -1,4 +1,6 @@
 @import '~antd/dist/antd.css';
+@import './styles/login.css';
+@import './styles/card.css';
 
 .App {
   text-align: center;
@@ -25,6 +27,11 @@ footer {
   background-color: rgb(80, 125, 188, 0.6);
   color: white;
   text-align: center;
+}
+
+img {
+  max-width: 50%;
+  height: auto;
 }
 
 .input-style {

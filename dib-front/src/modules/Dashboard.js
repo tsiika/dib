@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Icon } from 'antd';
+import { Icon, List, Card } from 'antd';
 
 
 
@@ -31,16 +31,33 @@ class Dashboard extends Component {
         logout = () => {
             localStorage.removeItem('jwtToken');
             window.location.reload();
-        }
-        
+        } 
 
     render() {
     return (
         <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-
-            <table class="table table-stripe">
+            <h2>Your links: </h2><br/>
+            <List
+            grid={{ gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 3 }}
+            dataSource={this.state.links}
+            renderItem={link => (
+            <List.Item>
+                <Card 
+                    hoverable
+                    key={link._id}
+                    title={link.name}
+                    className="card-title"
+                    actions={[<Link to={`/show/${link._id}`}><Icon type="search" title="Show info" alt="Show info"/></Link>, <Link to={`/edit/${link._id}`}><Icon type="edit" title="Edit" alt="Edit"/></Link>]}
+                    >
+                    <p>{link.description}</p>
+                
+                    <Link to={link.url} target="_blank">{link.url}</Link>
+                </Card>
+            </List.Item>
+            )}
+            />
+        {/*
+            <table>
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -62,11 +79,8 @@ class Dashboard extends Component {
                     </tr>
                 )}
                 </tbody>
-            </table>
-            </div>
-        </div>
-
-        </div>
+                </table>*/}
+    </div>
     );
     }
 }

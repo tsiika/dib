@@ -5,7 +5,7 @@ import { Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
 
 
 
-import '../styles/login.css';
+//import '../styles/login.css';
 
 
 const FormItem = Form.Item;
