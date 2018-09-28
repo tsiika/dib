@@ -1,5 +1,11 @@
 # Bugs
 
+28/09/2018 __ID:4__
+- Front-end responsivity problems.
+    - Responsivity is not working properly.
+    - Also there is excess white space around the root div which is causing problems with the site.
+    - The navigation bar is bit off.
+
 04/06/2018 __ID:3__
 - Front-end authentication problems
     - Login and registration works fine, but authorization for certain pages is not functioning properly.

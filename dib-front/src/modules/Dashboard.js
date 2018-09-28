@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Icon, List, Card } from 'antd';
 
-
+/* TODO:
+- Add card meta for better and more free styling. 
+**/
 
 class Dashboard extends Component {
 
@@ -46,40 +48,16 @@ class Dashboard extends Component {
                     hoverable
                     key={link._id}
                     title={link.name}
-                    className="card-title"
+                    className="ct"
                     actions={[<Link to={`/show/${link._id}`}><Icon type="search" title="Show info" alt="Show info"/></Link>, <Link to={`/edit/${link._id}`}><Icon type="edit" title="Edit" alt="Edit"/></Link>]}
                     >
-                    <p>{link.description}</p>
+                    <p className="cd">{link.description}</p>
                 
                     <Link to={link.url} target="_blank">{link.url}</Link>
                 </Card>
             </List.Item>
             )}
             />
-        {/*
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Url</th>
-                    <th>Description</th>
-                    <th>Date created</th>
-                    <th>Tools</th>
-                </tr>
-                </thead>
-                <tbody>
-                    
-                {this.state.links.map((link) =>
-                    <tr key={link._id}>
-                    <td>{link.name}</td>
-                    <td><Link to={link.url} target="_blank">{link.url}</Link></td>
-                    <td>{link.description}</td>
-                    <td>{link.created}</td>
-                    <td><Link to={`/show/${link._id}`}><Icon type="tool" theme="outlined" /></Link></td>
-                    </tr>
-                )}
-                </tbody>
-                </table>*/}
     </div>
     );
     }

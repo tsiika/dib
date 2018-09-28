@@ -52,3 +52,9 @@ img {
 .input-btn {
   max-width: 350px;
 }
+
+.half-left {
+  background-color: blue;
+  color: #FFF;
+
+}

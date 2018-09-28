@@ -21,6 +21,17 @@ class Front extends Component {
                     <h1>New era of front pages is here!</h1>
                 </Col>
             </Row>
+
+            <Row>
+                <Col span={12} className="half-left">
+                <p>
+                    Qui excepteur ut labore in adipisicing aute irure cupidatat magna cillum do excepteur. Labore do eu sunt amet est aliquip. Ea culpa enim nulla deserunt sint aliqua eiusmod veniam occaecat cupidatat occaecat laboris qui occaecat. Aute et eu veniam cillum fugiat. Aute cupidatat incididunt quis laboris veniam Lorem ea officia nulla dolor.
+                </p>
+                </Col>
+
+                <Col span={12}>
+                </Col>
+            </Row>
         </div>
     );
     }

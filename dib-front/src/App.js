@@ -34,7 +34,7 @@ class App extends Component {
 
           <MainMenu />
           <Container />
-          <SiteFooter />
+          {/*<SiteFooter />*/}
 
           <Switch>
             <Route exact path='/' component={Front} />
