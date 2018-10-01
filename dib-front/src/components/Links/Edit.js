@@ -65,7 +65,7 @@ class Edit extends Component {
                 <input type="text" className="form-control" name="url" value={this.state.link.url} onChange={this.onChange} placeholder="https://google.com" />
                 </div>
 
-                <Button type="submit primary"><Link to={'/dasboard'}>Submit</Link></Button>
+                <Button htmlType="submit" type="primary"><Link to={'/dasboard'}>Submit</Link></Button>
             </form>
             </div>
         </div>

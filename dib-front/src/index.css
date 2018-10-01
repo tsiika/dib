@@ -1,7 +1,13 @@
+@import '~antd/dist/antd.css';
+@import './styles/login.css';
+@import './styles/card.css';
+
+
 body {
 margin: 0;
 padding: 0;
 font-family: sans-serif;
+background-color: #FFF;
 }
 
 container {

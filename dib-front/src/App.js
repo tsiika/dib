@@ -5,6 +5,7 @@ import '../node_modules/auth0-js/build/auth0.js';
 
 import Logo from './assets/dib.png';
 import './App.css';
+import { Layout } from "antd";
 
 /* Components */ 
 import Edit from './components/Links/Edit';
@@ -26,29 +27,40 @@ import SiteFooter from './modules/Footer';
 
 import NoMatch from './modules/404';
 
+const { Header, Footer, Content } = Layout;
 
 class App extends Component {
   render() {
     return (
       <div>
+                <Layout>
+                  <Header>
+                    <MainMenu />
+                  </Header>
 
-          <MainMenu />
-          <Container />
+                  <Content className="content-style">
+                    <Container />
+                    <Switch>
+                      <Route exact path='/' component={Front} />
+                      <Route path='/dashboard' component={Dashboard} />
+                      <Route path='/create' component={Create} />
+                      <Route path='/edit/:_id' component={Edit} />
+                      <Route path='/show/:_id' component={Show} />
+                      <Route path='/login' component={Login} />
+                      <Route path='/register' component={Register} />
+                      <Route path='/profile' component={Profile} />
+                      <Route path='/logout' component={Logout} />
+
+                      <Route path="*" component={NoMatch} />
+                    </Switch>
+                  </Content>
+
+                  <Footer>&#169;{(new Date().getFullYear())} dib, <a href="https://github.com/tsiika">Tommi Siik</a>
+                  </Footer>
+              </Layout>
           {/*<SiteFooter />*/}
 
-          <Switch>
-            <Route exact path='/' component={Front} />
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path='/create' component={Create} />
-            <Route path='/edit/:_id' component={Edit} />
-            <Route path='/show/:_id' component={Show} />
-            <Route path='/login' component={Login} />
-            <Route path='/register' component={Register} />
-            <Route path='/profile' component={Profile} />
-            <Route path='/logout' component={Logout} />
 
-            <Route path="*" component={NoMatch} />
-          </Switch>
       </div>
       
 

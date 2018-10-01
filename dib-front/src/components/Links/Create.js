@@ -41,7 +41,7 @@ class Create extends Component {
 
         axios.post('/api/links', { name, description, url })
             .then((result) => {
-                this.props.history.push("/")
+                this.props.history.push("/dashboard")
             });
         }
     

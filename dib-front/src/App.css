@@ -1,6 +1,11 @@
 @import '~antd/dist/antd.css';
 @import './styles/login.css';
 @import './styles/card.css';
+@import './styles/header.css';
+
+body {
+  background-color: #FFF;
+}
 
 .App {
   text-align: center;
@@ -8,6 +13,8 @@
 
 .container {
   text-align: center;
+  padding-top: 1;
+  padding-bottom: 1em;
 }
 
 .box {

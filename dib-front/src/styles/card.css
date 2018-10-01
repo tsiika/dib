@@ -1,9 +1,18 @@
 .ct {
     color: #FFF;
     font-size: 27px;
-    background-color: blue
+    background-color: rgb(244, 255, 255);
+    padding: 10;
+    width: 100%;
+    max-width: 350px;
 }
 
 .cd {
     font-size: 13px;
+    color: #000;
+    height: 50px;
+}
+
+.lt {
+    font-size: 12px;
 }

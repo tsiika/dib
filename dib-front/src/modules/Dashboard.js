@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch, Router } from 'react-router-dom';
 import axios from 'axios';
 import { Icon, List, Card } from 'antd';
 
@@ -21,7 +21,6 @@ class Dashboard extends Component {
             axios.get('/api/links/')
             .then(res => {
                 this.setState({ links: res.data });
-                console.log(this.state.links);
             })
             .catch((error) => {
                 if(error.response.status === 401) {
@@ -49,11 +48,15 @@ class Dashboard extends Component {
                     key={link._id}
                     title={link.name}
                     className="ct"
-                    actions={[<Link to={`/show/${link._id}`}><Icon type="search" title="Show info" alt="Show info"/></Link>, <Link to={`/edit/${link._id}`}><Icon type="edit" title="Edit" alt="Edit"/></Link>]}
+                    actions={[
+                    <Link to={`/show/${link._id}`}><Icon type="search" title="Show info" alt="Show info"/></Link>, 
+                    <Link to={`/edit/${link._id}`}><Icon type="edit" title="Edit" alt="Edit"/></Link>
+                    ]}
                     >
                     <p className="cd">{link.description}</p>
-                
-                    <Link to={link.url} target="_blank">{link.url}</Link>
+                    <hr/>
+                    <a href={link.url} className="lt">{link.url}</a>
+
                 </Card>
             </List.Item>
             )}

@@ -13,21 +13,23 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Modal } from 'antd';
+
+const confirm = Modal.confirm;
 
 class Show extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            link: []
+            link: [],
+            visible: false
         };
     }
-
+    
     componentDidMount() {
         axios.get('/api/links/'+this.props.match.params._id)
             .then(res => {
                 this.setState({link: res.data});
-                console.log(res.data);
             });
     }
 
@@ -38,22 +40,17 @@ class Show extends Component {
                     this.props.history.push("/")
                 });
         }
-
         render(){
+
             return(
                 <div class="container">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                    <h3 class="panel-title">
+                    <h3>
                         {this.state.link.name}
                     </h3>
-                    </div>
-                    <div class="panel-body box">
-                    
+                    <div>
                     <dl>
                         <dt>Name:</dt>
                         <dd>{this.state.link.name}</dd>
-
                         <dt>Description:</dt>
                         <dd>{this.state.link.description}</dd><br/>
                         <dt>Url:</dt>
@@ -61,12 +58,11 @@ class Show extends Component {
                         <dt>Date created:</dt>
                         <dd>{this.state.link.created}</dd>
                     </dl><hr/>
-                    <Button type="default"><Link to="/dashboard">Return</Link></Button>&nbsp;
-                    <Button type="default"><Link to={`/edit/${this.state.link._id}`} >Edit</Link></Button>&nbsp;
+                    <Link to="/dashboard"><Button type="default">Return</Button></Link>&nbsp;
+                    <Link to={`/edit/${this.state.link._id}`} ><Button type="default">Edit</Button></Link>&nbsp;
                     <Button type="danger" onClick={this.delete.bind(this, this.state.link._id)} >Delete</Button>
-                    </div>
                 </div>
-                </div>
+            </div>
             );
         }
 }
