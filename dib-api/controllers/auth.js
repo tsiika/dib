@@ -14,7 +14,8 @@ router.get('/profile/', function(req, res, next ){
     });
 }); */
 
-router.get('/profile', passport.authenticate('jwt',  { session: false }), function(req, res) {
+exports.getUser = function(req, res) {
+passport.authenticate('jwt',  { session: false })
     var token = getToken(req.headers);
     if(token) {
         User.findOneById(req.params._id, function(err, user) {
@@ -24,9 +25,9 @@ router.get('/profile', passport.authenticate('jwt',  { session: false }), functi
     } else {
         return res.status(403).send({ success: false, msg: 'Unanthorized'});
     }
-});
+};
 
-router.post('/register', function(req, res) {
+exports.registerUser = function(req, res) {
     if(!req.body.username || !req.body.password) {
         res.json({ success: false, msg: 'Please enter username and password.'});
     } else {
@@ -42,9 +43,9 @@ router.post('/register', function(req, res) {
             res.json({ success: true, msg: 'User created successfully.'});
         });
     }
-});
+};
 
-router.post('/login', function(req, res) {
+exports.handleLogin = function(req, res) {
     User.findOne({
         username: req.body.username
     }, function(err, user) {
@@ -66,6 +67,5 @@ router.post('/login', function(req, res) {
             });
         }
     });
-});
+};
 
-module.exports = router;

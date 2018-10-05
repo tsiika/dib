@@ -12,7 +12,8 @@
     "nodejs",
     "express",
     "mongodb",
-    "javascript"
+    "javascript",
+    "antd"
   ],
   "author": "Tsiika",
   "license": "SEE LICENSE IN <LICENSE>"

@@ -6,7 +6,7 @@
 
 You know when the bookmark bar on your browser is not enough? And when you open a new tab you can only see a few your most visited websites? Well this project is hitting two flies with one hit and merging those earlier "problems" in one nice package!
 
-This is only my personal view to the things. 
+This is only my personal view to the things.  
 
 
 
@@ -25,13 +25,15 @@ And as they open up the new tab, this page will appear to them!
 
 This project is running on React, Nodejs and MongoDB. 
 
+Please note that this is only development version! Production version is coming to its own branch as the project gets to that point.
+
 ### Roadmap
 
 - [x] REST API
 - [x] Sites can be added, edited and deleted.
 - [x] Registration and login system 
 - [ ] Front-end validation on session management
-- [ ] Binding added sites to user
+- [ ] Binding added sites / links to user
 - [ ] Customizable dashboard
 - [ ] Profile pages
 - [ ] ???
@@ -39,7 +41,8 @@ This project is running on React, Nodejs and MongoDB.
 - [ ] ???
 - [ ] ???
 - [ ] Styling the front-end
-- [ ] Deploy somewhere
+- [ ] Production branch
+- [ ] Deploy live demo somewhere
 
 
 ## Bugs

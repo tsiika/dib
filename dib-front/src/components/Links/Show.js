@@ -37,7 +37,7 @@ class Show extends Component {
         console.log(id);
             axios.delete('/api/links/'+id)
                 .then((result) => {
-                    this.props.history.push("/")
+                    this.props.history.push("/dashboard")
                 });
         }
         render(){

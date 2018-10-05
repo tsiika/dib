@@ -14,8 +14,8 @@ const MongoStore = require('connect-mongo')(session);
 
 /* Configs and routes */
 
-const api = require('./routes/link');
-const auth = require('./routes/auth');
+const api = require('./routes/links');
+const auth = require('./routes/auths');
 
 var config = require('./config/settings');
 
