@@ -17,7 +17,6 @@ class Edit extends Component {
         axios.get('/api/links/'+this.props.match.params._id)
             .then(res => {
                 this.setState({ link: res.data });
-                console.log(this.state.link);
             });
     }
 

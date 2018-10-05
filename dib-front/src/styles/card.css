@@ -1,10 +1,11 @@
-.ct {
-    color: #FFF;
-    font-size: 27px;
-    background-color: rgb(244, 255, 255);
+.cst {
+    background-color: rgb(255, 255, 255);
     padding: 10;
-    width: 100%;
     max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .cd {
@@ -15,4 +16,5 @@
 
 .lt {
     font-size: 12px;
+    margin-right: 10;
 }

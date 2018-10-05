@@ -35,19 +35,22 @@ class Dashboard extends Component {
         } 
 
     render() {
+
     return (
         <div class="container">
             <h2>Your links: </h2><br/>
+            
             <List
             grid={{ gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 3 }}
             dataSource={this.state.links}
             renderItem={link => (
             <List.Item>
+
                 <Card 
                     hoverable
                     key={link._id}
                     title={link.name}
-                    className="ct"
+                    className="cst"
                     actions={[
                     <Link to={`/show/${link._id}`}><Icon type="search" title="Show info" alt="Show info"/></Link>, 
                     <Link to={`/edit/${link._id}`}><Icon type="edit" title="Edit" alt="Edit"/></Link>
@@ -55,9 +58,9 @@ class Dashboard extends Component {
                     >
                     <p className="cd">{link.description}</p>
                     <hr/>
-                    <a href={link.url} className="lt">{link.url}</a>
-
+                    <div className="cst"><a href={link.url} className="lt">{link.url}</a></div>
                 </Card>
+                
             </List.Item>
             )}
             />

@@ -15,14 +15,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button, Modal } from 'antd';
 
-const confirm = Modal.confirm;
 
 class Show extends Component {
     constructor(props) {
         super(props);
         this.state = {
             link: [],
-            visible: false
         };
     }
     

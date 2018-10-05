@@ -19,7 +19,6 @@ class Create extends Component {
             axios.get('/api/links/')
             .then(res => {
                 this.setState({ links: res.data });
-                console.log(this.state.links);
             })
             .catch((error) => {
                 if(error.response.status === 401) {
