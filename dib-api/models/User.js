@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
-const ObjectId = mongoose.Schema.Types.ObjectId;
+const LinkSchema = require('./Link');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
+    _id: { 
+        type: Schema.ObjectId, 
+        auto: true 
+    },
     username: {
         type: String,
         required: true,
@@ -13,7 +17,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    user_link: {
+    link: {
         type: Schema.Types.ObjectId,
         ref: 'LinkSchema'
     },

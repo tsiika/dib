@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
-const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const Schema = mongoose.Schema;
+const UserSchema = require('./User');
 
-const LinkSchema = new mongoose.Schema({
+const LinkSchema = new Schema({
+    _id: { 
+        type: Schema.ObjectId, 
+        auto: true 
+    },
     name: {
         type: String,
         required: true,
@@ -20,10 +24,10 @@ const LinkSchema = new mongoose.Schema({
         required: true,
         maxlength: 200
     },
-    user: {
+    user: [{
         type: Schema.Types.ObjectId,
         ref: 'UserSchema'
-    },
+    }],
     created: {
         type: Date,
         default: Date.now,

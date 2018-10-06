@@ -23,6 +23,9 @@ class Profile extends Component {
             .catch((error) => {
                 if(error.response.status === 401) {
                     this.props.history.push('/login');
+                };
+                if(error.response.status === 500) {
+                    console.log('Error 500, internal server error.');
                 }
             });
         }
@@ -36,6 +39,7 @@ class Profile extends Component {
     render() {
     return (
         <div className="container">
+            
             <p>Hello, </p>
                 {this.state.udata.map((user) =>
                     <div key={user._id}>

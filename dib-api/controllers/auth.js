@@ -6,13 +6,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const User = require('../models/User');
 
-/*
-router.get('/profile/', function(req, res, next ){
-    User.findById(req.params._id, function(err, user) {
-        if (err) return next(err);
-        res.json(user);
-    });
-}); */
+
 
 exports.getUser = function(req, res) {
 passport.authenticate('jwt',  { session: false })

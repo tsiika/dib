@@ -1,8 +1,8 @@
+var mongoose = require('mongoose');
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+var link_popu = require('../controllers/link_population');
 var link_controller = require('../controllers/link');
-
 
 // GET request for list of all Link items.
 router.get('/links', link_controller.getLinks);
@@ -18,5 +18,9 @@ router.put('/links/:id', link_controller.updateLink);
 
 // DELETE request for link deletion by id.
 router.delete('/links/:id', link_controller.deleteLink);
+
+router.get('/links/user/:id', link_popu.getLinksWithUser);
+
+router.get('/user/:id/links/', link_popu.getUserWithLinks);
 
 module.exports = router;
