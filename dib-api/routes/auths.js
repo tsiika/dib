@@ -11,4 +11,7 @@ router.post('/register', auth_controller.registerUser);
 // POST request for login handling.
 router.post('/login', auth_controller.handleLogin);
 
+// Request for handling logout?
+//router.something('/logout', auth_controller.handleLogout);
+
 module.exports = router;

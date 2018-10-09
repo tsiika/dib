@@ -23,7 +23,6 @@ import Profile from './components/Profile';
 import Front from './modules/Front';
 import Dashboard from './modules/Dashboard';
 import Container from './modules/Container';
-import SiteFooter from './modules/Footer';
 
 import NoMatch from './modules/404';
 
