@@ -27,6 +27,8 @@ This project is running on React, Nodejs and MongoDB.
 
 Please note that this is only development version! Production version is coming to its own branch as the project gets to that point.
 
+To follow development see the master __and__ experimental branches.
+
 ### Roadmap
 
 - [x] REST API
