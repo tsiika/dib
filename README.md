@@ -18,12 +18,20 @@ At the moment I'm using this kind of setup. The site is running on my own server
 
 The fundamental idea for this project is to have full fledged website where mostly I and maybe other users can have their own customized page up and running with their corresponding bookmark of course.
 
-And as they open up the new tab, this page will appear to them!
+And as they open up the new tab, this page will appear to them. (This might require browser extension!)
 
 
 # Developement
 
-This project is running on React, Nodejs and MongoDB. 
+This project is running on following technologies
+- React 
+    - Redux in future
+- NodeJS 
+- MongoDB
+
+Project also include following testing enviroments:
+- Cypress (front-end)
+- Mocha (back-end)
 
 Please note that this is only development version! Production version is coming to its own branch as the project gets to that point.
 
@@ -35,11 +43,8 @@ Please note that this is only development version! Production version is coming 
 - [ ] Front-end validation on session management
 - [ ] Binding added sites / links to user
 - [ ] Customizable dashboard
+- [ ] List & card views for links
 - [ ] Profile pages
-- [ ] ???
-- [ ] ???
-- [ ] ???
-- [ ] ???
 - [ ] Styling the front-end
 - [ ] Production branch
 - [ ] Deploy live demo somewhere
