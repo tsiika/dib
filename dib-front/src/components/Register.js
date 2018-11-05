@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/login.css';
-import { Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
+
 
 
 
@@ -35,25 +35,21 @@ class Register extends Component {
         const { username, password } = this.state;
         return (
             <div className="container">
-                <Row>
-                    <Col span={24}>
-                        <h1>Register</h1>
-                        <form onSubmit={this.onSubmit}>
+                <h1>Register</h1>
+                <form onSubmit={this.onSubmit}>
 
-                                <Input prefix={<Icon type="user" className="icon-style"/>} type="email" placeholder="Email" name="username" value={username} onChange={this.onChange} className="input-style" required /> 
-                            
-                                <Input prefix={<Icon type="lock" className="icon-style"/>} type="password" placeholder="Password" name="password" value={password} onChange={this.onChange} className="input-style" required />
-                                <br/>
-                                
-                                <Button type="primary" htmlType="submit" className="input-btn" block>Register</Button>
+                        <input type="email" placeholder="Email" name="username" value={username} onChange={this.onChange} className="input-style" required /> 
+                    
+                        <input type="password" placeholder="Password" name="password" value={password} onChange={this.onChange} className="input-style" required />
+                        <br/>
+                        
+                        <button type="primary" htmlType="submit" className="input-btn" block>Register</button>
 
-                                <p className="lt">
-                                    Already have an account? <Link to="/login"> Login here</Link>
-                                </p>
+                        <p className="lt">
+                            Already have an account? <Link to="/login"> Login here</Link>
+                        </p>
 
-                        </form>
-                    </Col>
-                </Row>
+                </form>
             </div>
         );
     }

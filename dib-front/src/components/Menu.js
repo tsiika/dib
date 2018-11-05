@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch, Router } from 'react-router-dom';
 import axios from 'axios';
-import { Layout, Menu, Icon } from 'antd';
-
 
 
 /* Components */
@@ -19,9 +17,8 @@ import Dashboard from '../modules/Dashboard';
 import Home from '../modules/Container';
 import NoMatch from '../modules/404';
 
-const { Header, Footer, Sider, Content } = Layout;
 
-class MainMenu extends Component {
+class Menu extends Component {
     
     constructor(props) {
         super(props);
@@ -50,50 +47,22 @@ class MainMenu extends Component {
     render() {
     return (
             <div>
-                <Layout>
-                    <Header className="header-style">
-                        <Menu
-                        onClick={this.handleClick}
-                        selectedKeys={[this.state.current]}
-                        mode="horizontal"
-                        >
-                            
-                                <Menu.Item key="home">
-                                    <Link to="/" component={Front}> <Icon type="home" theme="outlined" /> Home</Link>
-                                </Menu.Item>
+                <ul className="vertical menu align-right">
+                    <li><Link to="/" component={Front}> Home</Link></li>
 
-                                <Menu.Item>
-                                    { localStorage.getItem('jwtToken') &&
-                                    <Link to="/dashboard" component={Dashboard}><Icon type="profile" theme="outlined" /> Dashboard</Link>
-                                    }
-                                </Menu.Item>
+                    <li><Link to="/dashboard" component={Dashboard}>Dashboard</Link></li>
 
-                                <Menu.Item>
-                                    { localStorage.getItem('jwtToken') &&
-                                    <Link to="/create" component={Create}><Icon type="plus-circle" theme="outlined" /> Add Link</Link>
-                                    }
-                                </Menu.Item>
+                    <li><Link to="/create" component={Create}>Add Link</Link></li>
 
-                                <Menu.Item>
-                                    <Link to="/login" component={Login}><Icon type="login" theme="outlined" />Login</Link>
-                                </Menu.Item>
+                    <li><Link to="/login" component={Login}>Login</Link></li>
 
-                                <Menu.Item>
-                                    <Link to="/register" component={Register}> <Icon type="user-add" theme="outlined" />Register</Link>
-                                </Menu.Item>
+                    <li><Link to="/register" component={Register}>Register</Link></li>
 
-                                <Menu.Item>
-                                    { localStorage.getItem('jwtToken') &&
-                                    <Link to="/logout" component={Logout} onClick={this.logout}><Icon type="close-circle" theme="outlined" /> Logout</Link>
-                                        }
-                                </Menu.Item>
-                        </Menu>
-                    </Header>
-                </Layout>
-
+                    <li><Link to="/logout" component={Logout} onClick={this.logout}>Logout</Link></li>
+                </ul>
             </div>
         );
     }
 }
 
-export default MainMenu;
+export default Menu;

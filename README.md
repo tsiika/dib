@@ -28,9 +28,10 @@ This project is running on following technologies
     - Redux in future
 - NodeJS 
 - MongoDB
+- Zurb Foundation
 
 Project also include following testing enviroments:
-- Cypress (front-end)
+- Cypress (end-2-end)
 - Mocha (back-end)
 
 Please note that this is only development version! Production version is coming to its own branch as the project gets to that point.

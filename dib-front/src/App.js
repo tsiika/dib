@@ -4,17 +4,20 @@ import '../node_modules/auth0-js/build/auth0.js';
 
 import Logo from './assets/dib.png';
 import './App.css';
-import { Layout } from "antd";
+
+import $ from 'jquery';
+import 'foundation-sites';
 
 /* Components */ 
 import Edit from './components/Links/Edit';
 import Create from './components/Links/Create';
 import Show from './components/Links/Show';
-import MainMenu from './components/Menu';
+import Menu from './components/Menu';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import Footer from './modules/Footer';
 
 
 /* Modules*/
@@ -25,18 +28,19 @@ import Dashboard from './modules/Dashboard';
 
 import NoMatch from './modules/404';
 
-const { Header, Footer, Content } = Layout;
+
 
 class App extends Component {
+  componentDidMount() {
+
+    $(document).foundation();
+  }
+
   render() {
     return (
       <div>
-        <Layout>
-          <Header>
-            <MainMenu />
-          </Header>
 
-          <Content className="content-style">
+            <Menu />
             <Switch>
               <Route exact path='/' component={Front} />
               <Route path='/dashboard' component={Dashboard} />
@@ -50,12 +54,11 @@ class App extends Component {
 
               <Route path="*" component={NoMatch} />
             </Switch>
-          </Content>
+
 
           <Footer>
             &#169;{(new Date().getFullYear())} dib, <a href="https://github.com/tsiika">Tommi Siik</a>
           </Footer>
-      </Layout>
       </div>
       
 

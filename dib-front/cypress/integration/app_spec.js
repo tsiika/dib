@@ -29,7 +29,7 @@ describe("dib front", () => {
         cy.location("pathname").should("eq", "/dashboard");
     });
 
-    it("Should be able to create a new link: testi1", function(){
+    it("Should be able to create a new link: as user without authentication", function(){
         cy.visit("/create");
 
         cy
@@ -52,12 +52,7 @@ describe("dib front", () => {
         cy.location("pathname").should("eq", "/dashboard");
     });
 
-    it("Should be able to see published link.", function() {
-        cy.visit("/dashboard");
-
-        cy
-        .get(".ant-card-actions")
-        .contains("span")
-        .click();
+    it("Should be able to see published link: as user without authentication", function() {
+        cy.location("pathname").should("eq", "/dashboard");
     })
 });

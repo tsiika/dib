@@ -13,7 +13,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Button, Modal } from 'antd';
+
 
 
 class Show extends Component {
@@ -25,6 +25,7 @@ class Show extends Component {
     }
     
     componentDidMount() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         axios.get('/api/links/'+this.props.match.params._id)
             .then(res => {
                 this.setState({link: res.data});
@@ -56,9 +57,9 @@ class Show extends Component {
                         <dt>Date created:</dt>
                         <dd>{this.state.link.created}</dd>
                     </dl><hr/>
-                    <Link to="/dashboard"><Button type="default">Return</Button></Link>&nbsp;
-                    <Link to={`/edit/${this.state.link._id}`} ><Button type="default">Edit</Button></Link>&nbsp;
-                    <Button type="danger" onClick={this.delete.bind(this, this.state.link._id)} >Delete</Button>
+                    <Link to="/dashboard"><button type="default">Return</button></Link>&nbsp;
+                    <Link to={`/edit/${this.state.link._id}`} ><button type="default">Edit</button></Link>&nbsp;
+                    <button type="danger" onClick={this.delete.bind(this, this.state.link._id)} >Delete</button>
                 </div>
             </div>
             );

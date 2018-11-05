@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch, Router } from 'react-router-dom';
 import axios from 'axios';
-import { Icon, List, Card } from 'antd';
+
 
 /* TODO:
 - Add card meta for better and more free styling. 
@@ -17,7 +17,6 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
             axios.get('/api/links/')
             .then(res => {
                 this.setState({ links: res.data });
@@ -39,31 +38,25 @@ class Dashboard extends Component {
     return (
         <div class="container">
             <h2>Your links: </h2><br/>
-            
-            <List
-            grid={{ gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 3 }}
-            dataSource={this.state.links}
-            renderItem={link => (
-            <List.Item>
-
-                <Card 
-                    hoverable
-                    key={link._id}
-                    title={link.name}
-                    className="cst"
-                    actions={[
-                    <Link to={`/show/${link._id}`}><Icon type="search" title="Show info" alt="Show info"/></Link>, 
-                    <Link to={`/edit/${link._id}`}><Icon type="edit" title="Edit" alt="Edit"/></Link>
-                    ]}
-                    >
-                    <p className="cd">{link.description}</p>
-                    <hr/>
-                    <div className="cst"><a href={link.url} className="lt">{link.url}</a></div>
-                </Card>
-                
-            </List.Item>
-            )}
-            />
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Url</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    
+                {this.state.links.map((link) =>
+                    <tr key={link._id}>
+                    <td><Link to={`/show/${link._id}`}>{link.name}</Link></td>
+                    <td><Link to={link.url} target="_blank">{link.url}</Link></td>
+                    <td>{link.description}</td>
+                    </tr>
+                )}
+                </tbody>
+            </table>
     </div>
     );
     }
