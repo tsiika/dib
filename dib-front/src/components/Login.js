@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
+
 
 
 
 //import '../styles/login.css';
-
-
-const FormItem = Form.Item;
 
 class Login extends Component {
     constructor() {
@@ -49,16 +46,14 @@ class Login extends Component {
 
         return (
             <div className="container">
-                <Row>
-                    <Col span={24}>
                         <form onSubmit={this.onSubmit}>
                             <h1>Login</h1>
 
-                            <Input prefix={<Icon type="user" className="icon-style"/>} type="email" placeholder="Email" name="username" value={username} onChange={this.onChange} className="input-style" required /> 
+                            <input  type="email" placeholder="Email" name="username" value={username} onChange={this.onChange} className="input-style" required /> 
                             
-                            <Input prefix={<Icon type="lock" className="icon-style"/>} type="password" placeholder="Password" name="password" value={password} onChange={this.onChange} className="input-style" required />
+                            <input  type="password" placeholder="Password" name="password" value={password} onChange={this.onChange} className="input-style" required />
                             <br/>
-                            <Button type="primary" htmlType="submit" className="input-btn" block>Login</Button>
+                            <button type="primary" htmlType="submit" className="input-btn" block>Login</button>
                         <p className="lt">
                             Not a member? <Link to="/register"> Register here</Link>
                         </p>
@@ -68,8 +63,7 @@ class Login extends Component {
                                 { message }
                             </div> }
                         </form>
-                    </Col>
-                </Row>
+
             </div>
         );
     }
