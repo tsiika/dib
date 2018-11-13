@@ -47,7 +47,7 @@ class Menu extends Component {
     render() {
     return (
             <div>
-                <ul className="vertical menu align-right">
+                <ul className="menu">
                     <li><Link to="/" component={Front}> Home</Link></li>
 
                     <li><Link to="/dashboard" component={Dashboard}>Dashboard</Link></li>

@@ -56,10 +56,10 @@ class Show extends Component {
                         <dd>{this.state.link.url}</dd>
                         <dt>Date created:</dt>
                         <dd>{this.state.link.created}</dd>
-                    </dl><hr/>
-                    <Link to="/dashboard"><button type="default">Return</button></Link>&nbsp;
-                    <Link to={`/edit/${this.state.link._id}`} ><button type="default">Edit</button></Link>&nbsp;
-                    <button type="danger" onClick={this.delete.bind(this, this.state.link._id)} >Delete</button>
+                    </dl>
+                    <Link to="/dashboard"><button className="button success">Return</button></Link>&nbsp;
+                    <Link to={`/edit/${this.state.link._id}`} ><button className="button primary ">Edit</button></Link>&nbsp;
+                    <button className="button alert" onClick={this.delete.bind(this, this.state.link._id)} >Delete</button>
                 </div>
             </div>
             );

@@ -36,14 +36,14 @@ class Dashboard extends Component {
     render() {
 
     return (
-        <div class="container">
+        <div className="container">
             <h2>Your links: </h2><br/>
-            <table>
+            <table className="hover stack">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Url</th>
-                    <th>Description</th>
+                    <th width="50">Name</th>
+                    <th width="50">Url</th>
+                    <th width="50">Description</th>
                 </tr>
                 </thead>
                 <tbody>

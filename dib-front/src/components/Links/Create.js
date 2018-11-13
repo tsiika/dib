@@ -42,18 +42,18 @@ class Create extends Component {
 
                     <form onSubmit={this.onSubmit}>
 
-                            <label className="label-style" for="name">Name</label>
-                            <input type="text"  name="name" value={this.state.name} onChange={this.onChange} placeholder="Name" required={true} className="input-style" /> 
+                            <label for="name">Name</label>
+                            <input type="text"  name="name" value={this.state.name} onChange={this.onChange} placeholder="Name" required={true}  /> 
 
-                            <label className="label-style" for="description">Description</label>
-                            <input name="description" placeholder="Description" value={this.state.description} onChange={this.onChange} required={true} className="input-style" /> 
+                            <label for="description">Description</label>
+                            <input type="text" name="description" placeholder="Description" value={this.state.description} onChange={this.onChange} required={true}  /> 
 
-                            <label className="label-style" for="url">Url</label>
-                            <input type="text"  name="url" value={this.state.url} onChange={this.onChange} placeholder="https://google.com" required={true} className="input-style"/>
+                            <label for="url">Url</label>
+                            <input type="url"  name="url" value={this.state.url} onChange={this.onChange} placeholder="https://google.com" required={true} />
                         
 
-                        <button type="primary" htmlType="submit">Submit</button>&nbsp;
-                        <button type="danger"><Link to="/dashboard">Return</Link></button>
+                        <button className="button primary">Submit</button>&nbsp;
+                        <button className="button warning"><Link to="/dashboard">Return</Link></button>
 
                         
                     </form>

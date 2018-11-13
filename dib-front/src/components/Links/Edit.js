@@ -46,17 +46,17 @@ class Edit extends Component {
             <h4><Link to={`/show/${this.state.link._id}`}><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Link information</Link></h4>
                 <form onSubmit={this.onSubmit}>
 
-                        <label className="label-style" for="name">Name</label>
-                        <input label="Name" type="name" placeholder="Name" name="name" value={this.state.link.name} onChange={this.onChange} className="input-style" required /><br/>
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="Name" name="name" value={this.state.link.name} onChange={this.onChange} className="input-style" required /><br/>
 
-                        <label className="label-style" for="description">Description</label>
+                        <label for="description">Description</label>
                         <input label="Description" type="text" placeholder="Description" name="description" value={this.state.link.description} onChange={this.onChange} className="input-style" required /><br/>
 
-                        <label className="label-style" for="url">Url</label>
-                        <input label="Url" type="text" placeholder="Url" name="url" value={this.state.link.url} onChange={this.onChange} className="input-style" required /><br/>
+                        <label for="url">Url</label>
+                        <input type="url" placeholder="Url" name="url" value={this.state.link.url} onChange={this.onChange} className="input-style" required /><br/>
 
                     <br/>
-                    <button type="primary" htmlType="submit" className="input-btn" block>Submit</button>
+                    <button className="button primary">Submit</button>
                 </form>
 
                 <p>Aliqua Lorem quis amet est nisi enim ad amet esse ea deserunt minim. Excepteur velit consectetur deserunt id ullamco officia non aute fugiat enim quis. Velit ex ipsum ex occaecat nostrud occaecat ullamco in Lorem sint est.

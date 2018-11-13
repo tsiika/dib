@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import '../node_modules/auth0-js/build/auth0.js';
 
 import Logo from './assets/dib.png';
-import './App.css';
+import './App.scss';
 
 import $ from 'jquery';
 import 'foundation-sites';
