@@ -52,6 +52,8 @@ To follow development see the master __and__ experimental branches.
 - [ ] Production branch
 - [ ] Deploy live demo somewhere
 
+## Changelog
+Changelog of the project can be found at **[CHANGELOG.md](CHANGELOG.md)**
 
 ## Bugs
 Information regarding bugs and bugfixes can be found at **[BUGFIX.md](BUGFIX.md)**
