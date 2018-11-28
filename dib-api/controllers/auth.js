@@ -58,34 +58,43 @@ exports.registerUser = function(req, res) {
 // @desc    Handles login
 // @access  Public
 exports.handleLogin = function(req, res) {
-    User.findOne(
-        {
-            username: req.body.username
-        },
-        function(err, user) {
-            if (err) throw err;
+    const username = req.body.username;
+    const password = req.body.password;
 
-            if (!user) {
-                res.status(401).send({
-                    success: false,
-                    msg: "Authentication failed, user not found!"
-                });
-            } else {
-                // Comparing passwords
-                user.comparePassword(req.body.password, function(err, isMatch) {
-                    if (isMatch && !err) {
-                        // If username if found and password is correct, create login token.
-                        var token = jwt.sign(user.toJSON(), settings.secret);
-                        // Return information with token as JSON.
-                        res.json({ success: true, token: "JWT " + token });
-                    } else {
-                        res.status(401).send({
-                            success: false,
-                            msg: "Authentication failed, wrong password!"
+    //Find user by username
+    User.findOne({ username }).then(user => {
+        //Check for user
+        if (!user) {
+            return res.status(404).json({ msg: "User not found!" });
+        }
+        //Checks password
+        bcrypt.compare(password, user.password).then(isMatch => {
+            if (isMatch) {
+                // User matches
+
+                // Create JWT payload
+                const payload = {
+                    id: user.id,
+                    name: user.username
+                };
+
+                // Sign JWT token
+                jwt.sign(
+                    payload,
+                    settings.secret,
+                    {
+                        expiresIn: 36000
+                    },
+                    (err, token) => {
+                        res.json({
+                            success: true,
+                            token: "Bearer " + token
                         });
                     }
-                });
+                );
+            } else {
+                return res.status(400).json({ msg: "Incorrect password!" });
             }
-        }
-    );
+        });
+    });
 };
