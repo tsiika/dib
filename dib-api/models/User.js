@@ -1,33 +1,32 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
-const LinkSchema = require('./Link');
+const mongoose = require("mongoose");
+const LinkSchema = require("./Link");
 
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    _id: { 
-        type: Schema.ObjectId, 
-        auto: true 
+    _id: {
+        type: Schema.ObjectId,
+        auto: true
     },
     username: {
         type: String,
-        required: true,
+        required: true
     },
     password: {
         type: String,
-        required: true,
+        required: true
     },
     link: {
         type: Schema.Types.ObjectId,
-        ref: 'LinkSchema'
+        ref: "LinkSchema"
     },
     created: {
         type: Date,
-        default: Date.now,
-    },
-
+        default: Date.now
+    }
 });
 
+/*
 UserSchema.pre('save', function(next) {
     var user = this;
     if (this.isModified('password') || this.isNew) {
@@ -56,7 +55,7 @@ UserSchema.methods.comparePassword = function(passw, cb) {
         cb(null, isMatch);
     });
 };
-
-const User = mongoose.model('user', UserSchema);
+*/
+const User = mongoose.model("user", UserSchema);
 
 module.exports = User;
