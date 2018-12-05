@@ -1,38 +1,38 @@
 {
-  "name": "dib-front",
-  "version": "0.2.0",
-  "private": true,
-  "dependencies": {
-    "auth0-js": "^9.8.1",
-    "axios": "^0.18.0",
-    "express": "^4.16.4",
-    "feather-icons": "^4.9.0",
-    "foundation-sites": "^6.5.0",
-    "history": "^4.7.2",
-    "jquery": "^3.3.1",
-    "node-sass": "^4.10.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-redux": "^5.1.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.1",
-    "redux": "^4.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "cypress": "node_modules/.bin/cypress open"
-  },
-  "proxy": "http://localhost:5000/",
-  "devDependencies": {
-    "cypress": "^3.1.1"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "dib-front",
+    "version": "0.2.0",
+    "private": true,
+    "dependencies": {
+        "auth0-js": "^9.8.1",
+        "axios": "^0.18.0",
+        "express": "^4.16.4",
+        "feather-icons": "^4.9.0",
+        "foundation-sites": "^6.5.0",
+        "history": "^4.7.2",
+        "jquery": "^3.3.1",
+        "node-sass": "^4.10.0",
+        "react": "^16.6.0",
+        "react-dom": "^16.6.0",
+        "react-redux": "^5.1.0",
+        "react-router-dom": "^4.3.1",
+        "react-scripts": "^2.1.1",
+        "redux": "^4.0.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "cypress": "node_modules/.bin/cypress open"
+    },
+    "proxy": "http://localhost:5001/",
+    "devDependencies": {
+        "cypress": "^3.1.1"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
 }

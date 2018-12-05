@@ -1,6 +1,4 @@
 const express = require("express");
-
-const port = process.env.PORT || 5000;
 const app = express();
 
 const path = require("path");
@@ -9,6 +7,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const mongoose = require("mongoose");
 
 /* Configs and routes */
 
@@ -55,47 +54,18 @@ app.use(function(err, req, res, next) {
 // Login and register
 app.use("/api/auth", auth);
 
-// Session cookie temporarily disabled.
-// Session initializing
-/*
-app.use(
-    session({
-        key: "u_id",
-        secret: "dibsessionsecret",
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            expires: 60000
-        }
-    })
-);
+// DB config
+const db = require("./config/settings").mongoURI;
 
-// Session middleware for checking saved cookies in browser
-app.use((req, res, next) => {
-    if (req.cookies.u_id && !req.session.user) {
-        res.clearCookie("u_id");
-    }
-    next();
-});
-
-*/
-
-// Checking logged in users
-app.use;
+mongoose
+    .connect(db)
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log(err));
 
 //MongoDB
-const mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
-mongoose.connect(
-    config.mongo.uri,
-    config.mongo.options
-);
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // Setting port
-app.listen(port, function() {
-    console.log("Server is running on port:", port);
-});
+const port = process.env.PORT || 5001;
+app.listen(port, () => console.log(`Server running on port: ${port}`));
 
 module.exports = app;

@@ -7,7 +7,7 @@ var settings = require("./settings"); // Settings file
 
 var opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = settings.secret;
+opts.secretOrKey = settings.secretOrKey;
 
 module.exports = passport => {
     passport.use(
