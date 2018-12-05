@@ -56,9 +56,12 @@ app.use("/api/auth", auth);
 
 // DB config
 const db = require("./config/settings").mongoURI;
-
+const options = { useNewUrlParser: true };
 mongoose
-    .connect(db)
+    .connect(
+        db,
+        options
+    )
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
 

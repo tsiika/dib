@@ -1,6 +1,8 @@
-var express = require("express");
-var router = express.Router();
-var auth_controller = require("../controllers/auth");
+const express = require("express");
+const router = express.Router();
+const auth_controller = require("../controllers/auth");
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
 
 // GET request for list of all Link items.
 router.get("/profile", auth_controller.getUser);
@@ -11,7 +13,11 @@ router.post("/register", auth_controller.registerUser);
 // POST request for login handling.
 router.post("/login", auth_controller.handleLogin);
 
-// Request for handling logout?
-//router.something('/logout', auth_controller.handleLogout);
+// GET request for logged in user
+router.get(
+    "/current",
+    passport.authenticate("jwt", { session: false }),
+    auth_controller.currentUser
+);
 
 module.exports = router;

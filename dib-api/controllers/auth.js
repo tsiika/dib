@@ -12,6 +12,7 @@ const User = require("../models/User");
 // @route   GET /api/auth/profile
 // @desc    Get user profile (To be changed to own controller.)
 // @access  Private
+// @TODO    WIP
 exports.getUser = function(req, res) {
     passport.authenticate("jwt", { session: false });
     var token = getToken(req.headers);
@@ -28,6 +29,7 @@ exports.getUser = function(req, res) {
 // @route   POST /api/auth/register
 // @desc    Registering new user
 // @access  Public
+// @TODO    DONE
 exports.registerUser = function(req, res) {
     User.findOne({ username: req.body.username }).then(user => {
         if (user) {
@@ -55,8 +57,9 @@ exports.registerUser = function(req, res) {
 };
 
 // @route   POST /api/auth/login
-// @desc    Handles login
+// @desc    Handles login / returns JWT
 // @access  Public
+// @TODO    DONE
 exports.handleLogin = function(req, res) {
     const username = req.body.username;
     const password = req.body.password;
@@ -81,7 +84,7 @@ exports.handleLogin = function(req, res) {
                 // Sign JWT token
                 jwt.sign(
                     payload,
-                    settings.secret,
+                    settings.secretOrKey,
                     {
                         expiresIn: 36000
                     },
@@ -96,5 +99,16 @@ exports.handleLogin = function(req, res) {
                 return res.status(400).json({ msg: "Incorrect password!" });
             }
         });
+    });
+};
+
+// @route   POST /api/auth/current
+// @desc    Returns current user
+// @access  Private
+// @TODO    Todo
+exports.currentUser = (req, res) => {
+    res.json({
+        id: req.user.id,
+        username: req.user.username
     });
 };
