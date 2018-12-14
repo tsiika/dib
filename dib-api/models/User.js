@@ -1,3 +1,5 @@
+// @TODO    WIP
+
 const mongoose = require("mongoose");
 const LinkSchema = require("./Link");
 
@@ -14,11 +16,8 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
-    },
-    link: {
-        type: Schema.Types.ObjectId,
-        ref: "LinkSchema"
+        required: true,
+        min: 6
     },
     created: {
         type: Date,

@@ -1,12 +1,14 @@
-const mongoose = require('mongoose');
+// @TODO    WIP
+
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const UserSchema = require('./User');
+const UserSchema = require("./User");
 
 const LinkSchema = new Schema({
-    _id: { 
-        type: Schema.ObjectId, 
-        auto: true 
+    _id: {
+        type: Schema.ObjectId,
+        auto: true
     },
     name: {
         type: String,
@@ -24,10 +26,12 @@ const LinkSchema = new Schema({
         required: true,
         maxlength: 200
     },
-    user: [{
-        type: Schema.Types.ObjectId,
-        ref: 'UserSchema'
-    }],
+    user: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "UserSchema"
+        }
+    ],
     created: {
         type: Date,
         default: Date.now,
@@ -40,6 +44,6 @@ const LinkSchema = new Schema({
     }
 });
 
-const Link = mongoose.model('link', LinkSchema);
+const Link = mongoose.model("link", LinkSchema);
 
 module.exports = Link;

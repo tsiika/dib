@@ -9,6 +9,10 @@ const bcrypt = require("bcryptjs");
 // Load User model
 const User = require("../models/User");
 
+// Load validators
+const validateLogin = require(".././validation/login");
+const validateRegister = require(".././validation/register");
+
 // @route   GET /api/auth/profile
 // @desc    Get user profile (To be changed to own controller.)
 // @access  Private
@@ -31,6 +35,12 @@ exports.getUser = function(req, res) {
 // @access  Public
 // @TODO    DONE
 exports.registerUser = function(req, res) {
+    const { errors, isValid } = validateRegister(req.body);
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
     User.findOne({ username: req.body.username }).then(user => {
         if (user) {
             return res
@@ -61,6 +71,12 @@ exports.registerUser = function(req, res) {
 // @access  Public
 // @TODO    DONE
 exports.handleLogin = function(req, res) {
+    const { errors, isValid } = validateLogin(req.body);
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
     const username = req.body.username;
     const password = req.body.password;
 
@@ -68,7 +84,7 @@ exports.handleLogin = function(req, res) {
     User.findOne({ username }).then(user => {
         //Check for user
         if (!user) {
-            return res.status(404).json({ msg: "User not found!" });
+            return res.status(404).json(errors);
         }
         //Checks password
         bcrypt.compare(password, user.password).then(isMatch => {
@@ -96,7 +112,9 @@ exports.handleLogin = function(req, res) {
                     }
                 );
             } else {
-                return res.status(400).json({ msg: "Incorrect password!" });
+                errors.password = "Incorrect password!"
+                    .status(400)
+                    .json(errors);
             }
         });
     });
