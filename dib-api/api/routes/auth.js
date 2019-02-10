@@ -1,23 +1,23 @@
 const mongoose = require("mongoose");
 const passport = require("passport");
-const settings = require("../config/settings");
+const settings = require("../../config/settings");
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 
 // Load User model
-const User = require("../models/User");
+const User = require("../../models/User");
 
 // Load validators
-const validateLogin = require(".././validation/login");
-const validateRegister = require(".././validation/register");
+const validateLogin = require("../../validation/login");
+const validateRegister = require("../../validation/register");
 
 // @route   GET /api/auth/profile
 // @desc    Get user profile (To be changed to own controller.)
 // @access  Private
 // @TODO    WIP
-exports.getUser = function(req, res) {
+router.get('/profile',(req, res) => {
     passport.authenticate("jwt", { session: false });
     var token = getToken(req.headers);
     if (token) {
@@ -28,8 +28,8 @@ exports.getUser = function(req, res) {
     } else {
         return res.status(403).send({ success: false, msg: "Unanthorized" });
     }
-};
-
+})
+/* 
 // @route   POST /api/auth/register
 // @desc    Registering new user
 // @access  Public
@@ -130,3 +130,23 @@ exports.currentUser = (req, res) => {
         username: req.user.username
     });
 };
+
+
+
+/* // GET request for list of all Link items.
+router.get("/profile", auth_controller.getUser);
+
+// POST request for saving new link.
+router.post("/register", auth_controller.registerUser);
+
+// POST request for login handling.
+router.post("/login", auth_controller.handleLogin);
+
+// GET request for logged in user
+router.get(
+    "/current",
+    passport.authenticate("jwt", { session: false }),
+    auth_controller.currentUser
+); */ 
+
+module.exports = router;
